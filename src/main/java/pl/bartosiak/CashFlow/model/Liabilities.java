@@ -13,13 +13,17 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "iban", schema = "cash")
-public class Iban {
+@Table(schema = "cash")
+public class Liabilities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String number;
-    private LocalDate date;
-    private double balance;//TODO zmienic docelowo na BigDecimal
+    private LocalDate paymentDate;
+    private double value;
+    private String invoiceNumber;
+    private String description;
+    private boolean isPaid;
+    @OneToOne
+    private Partner partner;
 
 }

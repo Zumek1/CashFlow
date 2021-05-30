@@ -7,19 +7,22 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "iban", schema = "cash")
-public class Iban {
+@Table(schema = "cash")
+public class ForecastCashIn {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String number;
-    private LocalDate date;
-    private double balance;//TODO zmienic docelowo na BigDecimal
-
+    private LocalDate start;
+    private LocalDate stop;
+    private double value;
+    private String cashFlowScenario;
+    private LocalDateTime modificationDate;
+    private String modificationBy;
 }

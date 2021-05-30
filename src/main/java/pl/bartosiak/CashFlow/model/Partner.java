@@ -6,20 +6,17 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "iban", schema = "cash")
-public class Iban {
+@Table(schema = "cash")
+public class Partner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String number;
-    private LocalDate date;
-    private double balance;//TODO zmienic docelowo na BigDecimal
-
+    private String name;
+    private String phone;
 }
